@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cap_arsproject
+  labels:
+    app: arsproject
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: arsproject
+  template:
+    metadata:
+      labels:
+        app: arsproject
+    spec:
+      containers:
+      - name: app
+        image: projectudc/capstone:latest
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 80 
